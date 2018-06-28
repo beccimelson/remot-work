@@ -1,23 +1,63 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import LeftPane from "./LeftPane";
-import RightPane from "./RightPane";
+import React, { Fragment } from 'react';
+import {
+  Grid,
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core';
 
 const styles = {
   Paper: {
     padding: 20,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    height: 600,
+    overflowY: 'auto'
   }
 };
 
-export default props => (
+export default ({
+  jobs,
+  category,
+  onSelect,
+  job: {
+    id,
+    title = 'Welcome!',
+    description = 'Please select a job from the list on the left.'
+  }
+}) => (
   <Grid container>
     <Grid item sm>
-      <LeftPane styles={styles} />
+      <Paper style={styles.Paper}>
+        {jobs.map(
+          ([group, jobs]) =>
+            !category || category === group ? (
+              <Fragment key={group}>
+                <Typography
+                  variant="headline"
+                  style={{ textTransform: 'capitalize' }}
+                >
+                  {group}
+                </Typography>
+                <List component="ul">
+                  {jobs.map(({ id, title }) => (
+                    <ListItem key={id} button onClick={() => onSelect(id)}>
+                      <ListItemText primary={title} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Fragment>
+            ) : null
+        )}
+      </Paper>
     </Grid>
     <Grid item sm>
-      <RightPane styles={styles} />
+      <Paper style={styles.Paper}>
+        <Typography variant="display1">{title}</Typography>
+        <Typography variant="subheading">{description}</Typography>
+      </Paper>
     </Grid>
   </Grid>
 );

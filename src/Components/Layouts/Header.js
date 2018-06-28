@@ -1,5 +1,5 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
+import React from 'react';
+import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 
 export default props => (
   <AppBar position="static">

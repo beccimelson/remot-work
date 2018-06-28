@@ -1,21 +1,58 @@
-import React, { Component, Fragment } from "react";
-import { Header, Footer } from "./Layouts";
-import Jobs from "./Jobs";
-import { JobTypes } from "./Layouts";
-import { jobType, job } from "../store.js";
+import React, { Component, Fragment } from 'react';
+import { Header, Footer } from './Layouts';
+import Jobs from './Jobs';
+import { types, jobs } from '../store.js';
 
 export default class extends Component {
-  states = { job };
+  state = {
+    jobs,
+    job: {}
+  };
+
+  getJobsbyType() {
+    return Object.entries(
+      this.state.jobs.reduce((jobs, job) => {
+        const { types } = job;
+
+        jobs[types] = jobs[types] ? [...jobs[types], job] : [job];
+
+        return jobs;
+      }, {})
+    );
+  }
+
+  handleCategorySelected = category => {
+    this.setState({
+      category
+    });
+  };
+
+  handleJobSelected = id => {
+    this.setState(({ jobs }) => ({
+      job: jobs.find(jb => jb.id === id)
+    }));
+  };
+
   render() {
+    const jobs = this.getJobsbyType(),
+      { category, job } = this.state;
+
     return (
       <Fragment>
         <Header />
 
-        <JobTypes jobType={jobType} />
+        <Jobs
+          job={job}
+          jobs={jobs}
+          category={category}
+          onSelect={this.handleJobSelected}
+        />
 
-        <Jobs />
-
-        <Footer />
+        <Footer
+          category={category}
+          types={types}
+          onSelect={this.handleCategorySelected}
+        />
       </Fragment>
     );
   }

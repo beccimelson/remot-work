@@ -1,48 +1,38 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+import React from 'react';
+import { Paper, Tabs, Tab } from '@material-ui/core';
 
 const styles = {
-  root: {
-    width: 500
+  H3: {
+    padding: 20,
+    marginTop: 20,
+    marginBottom: 20,
+    background: '#DA552F',
+    textAlign: 'center',
+    color: '#FFFFFF'
   }
 };
 
-class SimpleBottomNavigation extends React.Component {
-  state = {
-    value: 0
-  };
+export default ({ types, category, onSelect }) => {
+  const index = category ? types.findIndex(group => group === category) + 1 : 0;
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+  const onIndexSelect = (e, index) =>
+    onSelect(index === 0 ? '' : types[index - 1]);
 
-  render() {
-    const { classes } = this.props;
-    const { value } = this.state;
-
-    return (
-      <BottomNavigation
-        value={value}
-        onChange={this.handleChange}
-        showLabels
-        className={classes.root}
+  return (
+    <Paper>
+      <Tabs
+        value={index}
+        onChange={onIndexSelect}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
       >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation>
-    );
-  }
-}
-
-SimpleBottomNavigation.propTypes = {
-  classes: PropTypes.object.isRequired
+        <Tab label="All" />
+        {types.map(group => <Tab key={group} label={group} />)}
+      </Tabs>
+      <h3 style={styles.H3}>
+        Like this site? remot.work is on Product Hunt right now
+      </h3>
+    </Paper>
+  );
 };
-
-export default withStyles(styles)(SimpleBottomNavigation);
