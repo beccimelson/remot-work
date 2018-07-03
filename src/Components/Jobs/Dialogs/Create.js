@@ -1,16 +1,23 @@
 import React, { Component, Fragment } from 'react';
-import { Dialog, Button } from '@material-ui/core';
 import {
+  Dialog,
+  Button,
+  TextField,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
-} from '@material-ui/core/Dialog';
+} from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 
 export default class extends Component {
   state = {
-    open: false
+    open: false,
+    job: {
+      title: '',
+      description: '',
+      types: ''
+    }
   };
 
   handleToggle = () => {
@@ -19,8 +26,20 @@ export default class extends Component {
     });
   };
 
+  handleChange = name => ({ target: { value } }) => {
+    this.setState({
+      job: {
+        ...this.state.job,
+        [name]: value
+      }
+    });
+  };
+
   render() {
-    const { open } = this.state;
+    const {
+      open,
+      job: { title, description, types }
+    } = this.state;
 
     return (
       <Fragment>
@@ -28,12 +47,33 @@ export default class extends Component {
           <Add />
         </Button>
         <Dialog open={open} onClose={this.handleToggle}>
-          <DialogTitle id="form-dialog-title">Post a job for $50</DialogTitle>
+          <DialogTitle>Post a job for $50</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Please fill out the form below to submit your job for review.
             </DialogContentText>
-            <form />
+            <form>
+              <TextField
+                label="Title"
+                value={title}
+                onChange={this.handleChange('title')}
+                margin="normal"
+              />
+              <br />
+              <TextField
+                label="Description"
+                value={description}
+                onChange={this.handleChange('description')}
+                margin="normal"
+              />
+              <br />
+              <TextField
+                label="Types"
+                value={types}
+                onChange={this.handleChange('types')}
+                margin="normal"
+              />
+            </form>
           </DialogContent>
           <DialogActions>
             <Button color="primary" variant="raised">
