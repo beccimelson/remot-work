@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { Header, Footer } from './Layouts';
 import Jobs from './Jobs';
 import { types, jobs } from '../store.js';
@@ -45,6 +46,7 @@ export default class extends Component {
 
     return (
       <Fragment>
+        <CssBaseline />
         <Header types={types} onJobCreate={this.handleJobCreate} />
 
         <Jobs

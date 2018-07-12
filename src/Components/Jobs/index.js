@@ -11,8 +11,8 @@ import {
 const styles = {
   Paper: {
     padding: 20,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
     height: 600,
     overflowY: 'auto'
   }
