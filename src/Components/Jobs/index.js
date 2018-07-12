@@ -29,7 +29,7 @@ export default ({
   }
 }) => (
   <Grid container>
-    <Grid item sm>
+    <Grid item xs={12} sm={6}>
       <Paper style={styles.Paper}>
         {jobs.map(
           ([group, jobs]) =>
@@ -53,11 +53,13 @@ export default ({
         )}
       </Paper>
     </Grid>
-    <Grid item sm>
+    {/* 
+    <Grid item xs={12} sm={6}>
       <Paper style={styles.Paper}>
         <Typography variant="display1">{title}</Typography>
         <Typography variant="subheading">{description}</Typography>
       </Paper>
     </Grid>
+    */}
   </Grid>
 );

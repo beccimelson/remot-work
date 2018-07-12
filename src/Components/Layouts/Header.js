@@ -6,7 +6,7 @@ export default ({ types, onJobCreate }) => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="headline" color="inherit" style={{ flex: 1 }}>
-        Submission entry
+        Job Board
       </Typography>
 
       <CreateDialog types={types} onCreate={onJobCreate} />
