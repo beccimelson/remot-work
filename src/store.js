@@ -1,9 +1,11 @@
 export const types = [
-  'development',
+  'customer support',
+  'data',
   'design',
-  'customer service',
+  'development',
+  'management/exec',
   'marketing',
-  'management/exec'
+  'other'
 ];
 
 export const jobs = [
@@ -22,11 +24,12 @@ export const jobs = [
     link: '#'
   },
   {
-    id: 'test-3',
-    title: 'test job3',
-    types: 'customer service',
+    id: 'Automattic Happiness Engineer for WordPress.com',
+    title: 'automattic-happiness-engineer-wordpress',
+    types: 'customer support',
     description: 'this is a test job',
-    link: '#'
+    link:
+      'https://weworkremotely.com/remote-jobs/automattic-happiness-engineer-for-wordpress-com'
   },
   {
     id: 'test-4',
@@ -41,5 +44,13 @@ export const jobs = [
     types: 'management/exec',
     description: 'this is a test job',
     link: '#'
+  },
+  {
+    id: 'museum-hack-ft-sales-rep',
+    title: 'Museum Hack Full-time Sales Representative',
+    types: 'other',
+    description: 'this is a test job',
+    link:
+      'https://weworkremotely.com/remote-jobs/museum-hack-full-time-sales-representative-remote-1'
   }
 ];

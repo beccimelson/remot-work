@@ -5,10 +5,12 @@ import {
   Paper,
   Tabs,
   Tab,
-  Typography
+  Typography,
+  Button
 } from '@material-ui/core';
 import CreateDialog from '../Jobs/Dialogs/Create';
 import withWidth from '@material-ui/core/withWidth';
+import 'typeface-roboto';
 
 export default withWidth()(
   ({ types, category, onSelect, onJobCreate, width }) => {
@@ -31,7 +33,9 @@ export default withWidth()(
               >
                 LOGO
               </Typography>
-              <CreateDialog types={types} onCreate={onJobCreate} />
+              <Button href="#text-buttons">Terms</Button>
+              <Button href="#text-buttons">Data</Button>
+              <Button href="#text-buttons">Contact</Button>
             </Toolbar>
           </AppBar>
           <Tabs
@@ -54,6 +58,7 @@ export default withWidth()(
               Verified remote jobs that offer the freedom to work anywhere. Find
               the most qualified people - Hire remote!
             </Typography>
+            <CreateDialog types={types} onCreate={onJobCreate} />
           </Paper>
         </Paper>
       </div>

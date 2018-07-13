@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Header } from './Layouts';
 import Jobs from './Jobs';
 import { types, jobs } from '../store.js';
+import 'typeface-roboto';
 
 export default class extends Component {
   state = {

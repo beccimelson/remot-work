@@ -1,5 +1,6 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { Paper, Typography } from '@material-ui/core';
+import 'typeface-roboto';
 
 const styles = {
   H3: {
@@ -15,9 +16,13 @@ const styles = {
 const Footer = props => {
   return (
     <Paper>
-      <h3 style={styles.H3}>
-        Like this site? remot.work is on Product Hunt right now
-      </h3>
+      <Typography variant="headline" component="h3" align="center">
+        Work Remotely.
+      </Typography>
+      <Typography component="p" align="center">
+        Verified remote jobs that offer the freedom to work anywhere. Find the
+        most qualified people - Hire remote!
+      </Typography>
     </Paper>
   );
 };

@@ -12,12 +12,21 @@ import {
   FormControl,
   Select
 } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   FormControl: {
     width: 400
+  },
+
+  createButton: {
+    margin: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center'
+  },
+
+  Typography: {
+    fontFamily: ['Roboto'].join(',')
   }
 });
 
@@ -76,11 +85,17 @@ export default withStyles(styles)(
 
       return (
         <Fragment>
-          <Button variant="fab" onClick={this.handleToggle} mini>
-            <Add />
+          <Button
+            className={classes.createButton}
+            variant="contained"
+            onClick={this.handleToggle}
+            size="large"
+            color="primary"
+          >
+            Post a job for $50
           </Button>
           <Dialog open={open} onClose={this.handleToggle}>
-            <DialogTitle>Post a job for $100</DialogTitle>
+            <DialogTitle>Post a job</DialogTitle>
             <DialogContent>
               <DialogContentText>
                 Please fill out the form below to submit your job for review.
