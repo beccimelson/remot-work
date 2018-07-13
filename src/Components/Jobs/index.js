@@ -13,7 +13,7 @@ const styles = {
     padding: 20,
     marginTop: 5,
     marginBottom: 5,
-    height: 600,
+    height: 700,
     overflowY: 'auto'
   }
 };
@@ -28,8 +28,8 @@ export default ({
     description = 'Please select a job from the list on the left.'
   }
 }) => (
-  <Grid container>
-    <Grid item xs={12} sm={6}>
+  <Grid container spacing={24}>
+    <Grid item xs={12}>
       <Paper style={styles.Paper}>
         {jobs.map(
           ([group, jobs]) =>
