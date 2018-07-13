@@ -30,7 +30,7 @@ export default class extends Component {
           <Add />
         </Button>
         <Dialog open={open} onClose={this.handleToggle}>
-          <DialogTitle>Post a job for $20</DialogTitle>
+          <DialogTitle>Post a job for $50</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Please fill out the form below to submit your job for review. All
