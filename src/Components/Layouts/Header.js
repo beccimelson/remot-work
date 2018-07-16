@@ -33,8 +33,6 @@ export default withWidth()(
               >
                 LOGO
               </Typography>
-              <Button href="#text-buttons">Terms</Button>
-              <Button href="#text-buttons">Data</Button>
               <Button href="#text-buttons">Contact</Button>
             </Toolbar>
           </AppBar>
@@ -52,11 +50,14 @@ export default withWidth()(
           </Tabs>
           <Paper>
             <Typography variant="headline" component="h3" align="center">
-              Work Remotely.
+              Do You Want To Work Remotely?
             </Typography>
             <Typography component="p" align="center">
-              Verified remote jobs that offer the freedom to work anywhere. Find
-              the most qualified people - Hire remote!
+              Browse verified remote jobs that offer the freedom to work
+              anywhere.
+            </Typography>
+            <Typography component="p" align="center">
+              Find the most qualified people - Hire remote!
             </Typography>
             <CreateDialog types={types} onCreate={onJobCreate} />
           </Paper>
