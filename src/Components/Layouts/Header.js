@@ -33,7 +33,7 @@ export default withWidth()(
               >
                 LOGO
               </Typography>
-              <Button href="#text-buttons">Contact</Button>
+              <Button href="mailto:beccimelson@gmail.com">Contact</Button>
             </Toolbar>
           </AppBar>
           <Tabs

@@ -155,6 +155,16 @@ export default withStyles(styles)(
                 <br />
 
                 <TextField
+                  label="How to Apply"
+                  value={description}
+                  onChange={this.handleChange('howtoapply')}
+                  margin="normal"
+                  multiline
+                  rows="4"
+                  className={classes.FormControl}
+                />
+
+                <TextField
                   label="Apply URL"
                   // value={title}
                   onChange={this.handleChange('apply')}
@@ -208,7 +218,7 @@ export default withStyles(styles)(
                   className={classes.FormControl}
                 />
                 <DialogContentText>
-                  This is where we’ll send your receipt and confirmation email.
+                  This is where we’ll send your confirmation email.
                 </DialogContentText>
               </form>
             </DialogContent>
